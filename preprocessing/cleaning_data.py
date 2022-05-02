@@ -52,7 +52,7 @@ def drop_columns(df):
     This function receives a df and returns a new df without certain columns and with only residential_sale as Type of Sale 
     """
     new_df = df.copy()
-    new_df = new_df.drop(columns = ['Unnamed: 0', 'Number of facades', 'Garden orientation', 'Terrace orientation' ], axis = 1)
+    new_df = new_df.drop(columns = ['Unnamed: 0', 'Garden orientation', 'Terrace orientation' ], axis = 1)
     
     #Keeping only residential sales:
     #Group_sale type of sale only have empty and unknowns on the columns
@@ -77,4 +77,13 @@ def imputeAndClean(df):
     #print(str(int(mean_living_area)))
     new_df['Living area'] = new_df['Living area'].fillna(int(mean_living_area))
     
+    #Replace unknown in # of facades for NaN and convert to numeric
+    new_df['Number of facades']  = new_df['Number of facades'].replace("Unknown", np.NaN)
+    new_df['Number of facades']  = pd.to_numeric(new_df['Number of facades'])
+    
+    #Impute missing values in number of facades replaced by mean
+    mean_facades = new_df['Number of facades'].mean()
+    new_df['Number of facades'] = new_df['Number of facades'].fillna(int(mean_facades))
+    print("Shape is ---->  " + str(new_df.shape))
+
     return new_df
