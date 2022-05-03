@@ -23,18 +23,59 @@ def predict(X_test):
     #for now predicting on first 
     pred = loaded_model.predict(X_test)
 
-    print("The predicted price is: " + str(pred))
+    return pred
 
-  ###This part is for testing purposes only
+
+
+def train():
+    df = pd.read_csv('../data/houses.csv')
+    print(df.head())
+
+    print(df.columns)
+    #After preprocessing
+    print("------------After preprocessing------------------------------")
+    df = cleaning_data.preprocess(df)
+
+    print(df.head())
+
+    print(df.columns)
+
+    #Defining features and target
+    y = df['Price']
+    #Here I will drop our target Price, as well as type of sale since it is only one type and for now I'm dropping location
+    X = df.drop(columns=['Price', 'Type of sale', 'Location'], axis=1)
+
+
+    #Splitting data into Train and Test
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3,random_state=42)
+
+    #Fitting simple linear regression to training set
+
+    model =  LinearRegression()
+    model.fit(X_train,y_train)
+
+    #Save model
+    filename = "../model/model.sav"
+    joblib.dump(model, filename)
+
+
+
+
+###This part is for testing purposes only
+
+#call train() function 
+
+train()
+
 df = pd.read_csv('../data/houses.csv')
 df = cleaning_data.preprocess(df)
 X_test = df.drop(columns=['Price', 'Type of sale', 'Location'], axis=1)
 print(X_test.iloc[:1])
-predict(X_test.iloc[:1])
+prediction = predict(X_test.iloc[0:1])
+print("The predicted price is: " + str(prediction))
 #predict(X_test.values[0].reshape(-1,1))
 #print(X_test.values.reshape(1,-1)[0])
 #predict(X_test.values)
 #print(X_test.values.reshape(-1,1))
 ######
-
-
