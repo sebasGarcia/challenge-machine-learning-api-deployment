@@ -13,12 +13,22 @@ def alive():
     return '<h1>This is server is alive!</h1>'
 
 
-@app.route('/predict', methods=['GET','POST'])
+@app.route('/predict', methods=['POST','GET'])
 def predict():
+    #WIP
     """
     This function will be use for the prediction of property
     """
-    #WIP
+    if request.method == 'POST':
+            #to_predict_list = request.form.to_dict()
+            #to_predict_list = list(to_predict_list.values())
+            #to_predict_list = list(map(float, to_predict_list))
+            #result = round(float(ValuePredictor(to_predict_list)), 2)
+        #return render_template("home.html", result=result)
+        return render_template("immoeliza.html")
+    if request.method == 'GET':
+        return render_template("immoeliza.html")
+    
 
 if __name__ == '__main__':
    app.run(debug=True)
