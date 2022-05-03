@@ -54,7 +54,8 @@ def train():
 
     model =  LinearRegression()
     model.fit(X_train,y_train)
-
+    r_squared = model.score(X_test, y_test)
+    print("R2 score is: "+ str(r_squared))
     #Save model
     filename = "../model/model.sav"
     joblib.dump(model, filename)
