@@ -18,7 +18,7 @@ def preprocess(df):
     new_df['Open fireplace'] = new_df['Open fireplace'].apply(convertToInt)
 
     new_df = imputeAndClean(new_df)
-
+    new_df = creatingDummies(new_df)
     return new_df
 
 
@@ -52,7 +52,7 @@ def drop_columns(df):
     This function receives a df and returns a new df without certain columns and with only residential_sale as Type of Sale 
     """
     new_df = df.copy()
-    new_df = new_df.drop(columns = ['Unnamed: 0', 'Garden orientation', 'Terrace orientation' ], axis = 1)
+    new_df = new_df.drop(columns = ['Unnamed: 0', 'Garden orientation', 'Terrace orientation', 'Property type' ], axis = 1)
     
     #Keeping only residential sales:
     #Group_sale type of sale only have empty and unknowns on the columns
@@ -84,6 +84,17 @@ def imputeAndClean(df):
     #Impute missing values in number of facades replaced by mean
     mean_facades = new_df['Number of facades'].mean()
     new_df['Number of facades'] = new_df['Number of facades'].fillna(int(mean_facades))
-    print("Shape is ---->  " + str(new_df.shape))
+   # print("Shape is ---->  " + str(new_df.shape))
 
     return new_df
+
+
+def creatingDummies(df):
+    """
+    This function will create dummies for some categorical variables in the dataset and return the modified dataset
+    """
+    new_df = df.copy()
+    new_df = pd.get_dummies(new_df, columns = ["Property subtype","Kitchen", "Condition"], drop_first = True)
+    return new_df
+
+
