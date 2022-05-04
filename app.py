@@ -3,13 +3,14 @@ import pandas as pd
 import sys
 import json
 import joblib
-#sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/model')
+sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/model')
 sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/preprocessing')
 sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/predict')
 #import preprocessing.cleaning_data as cleaning_data
 #import predict.prediction as prediction
 from preprocessing import cleaning_data
 from predict import prediction
+
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
@@ -24,6 +25,7 @@ def predict():
     """
     This function will be use for the prediction of property
     """
+    
     if request.method == 'POST':
             number_rooms = request.form.get('number_rooms')
             living_area =  request.form.get('living_area')
