@@ -30,9 +30,7 @@ def checkData(data) -> bool:
     """
     print(str(data))
     df = pd.read_json(data, typ='dictionary')
-    #var = str(data)
-   # print(var)
-    #print(df.head())
+
     if df['Number of facades'] == '' or df['Number of bedrooms'] == '' or  df['Living area'] == '' or  df['Surface area land'] == '':
        return False 
     else:
@@ -82,7 +80,7 @@ def imputeAndClean(df):
     new_df = new_df.drop(index=new_df[new_df['Kitchen']=='Unknown'].index)
     #Impute missing values in living area, replacing by mean
     mean_living_area = new_df['Living area'].mean()
-    #print(str(int(mean_living_area)))
+
     new_df['Living area'] = new_df['Living area'].fillna(int(mean_living_area))
     
     #Replace unknown in # of facades for NaN and convert to numeric
@@ -92,7 +90,6 @@ def imputeAndClean(df):
     #Impute missing values in number of facades replaced by mean
     mean_facades = new_df['Number of facades'].mean()
     new_df['Number of facades'] = new_df['Number of facades'].fillna(int(mean_facades))
-   # print("Shape is ---->  " + str(new_df.shape))
 
     return new_df
 

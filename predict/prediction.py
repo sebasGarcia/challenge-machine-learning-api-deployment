@@ -78,21 +78,3 @@ def train():
     #Save model
     filename = "../model/model.sav"
     joblib.dump(model, filename)
-
-
-
-
-###This part is for testing purposes only
-
-#call train() function 
-
-# train()
-
-# df = pd.read_csv('../data/houses.csv')
-# df = cleaning_data.preprocess(df)
-# X_test = df.drop(columns=['Price', 'Type of sale', 'Location'], axis=1)
-# print(X_test.iloc[:1])
-# prediction = predict(X_test.iloc[0:1])
-# print("The predicted price is: " + str(prediction))
-
-######
