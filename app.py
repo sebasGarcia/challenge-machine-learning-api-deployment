@@ -4,15 +4,15 @@ import sys
 import json
 import joblib
 import importlib.util  
-sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/model')
-sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/preprocessing')
-sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/predict')
+#sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/model')
+#sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/preprocessing')
+#sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/predict')
 #import preprocessing.cleaning_data as cleaning_data
 #import predict.prediction as prediction
 #from preprocessing import cleaning_data
 #from predict import prediction
-import preprocessing.cleaning_data as cleaning_data
-import predict.prediction as prediction 
+#import preprocessing.cleaning_data as cleaning_data
+#import predict.prediction as prediction 
 
 from flask import Flask, request, jsonify, render_template
 
