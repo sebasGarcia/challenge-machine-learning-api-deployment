@@ -16,11 +16,30 @@ def predict(X_test):
     """
 
     
-    filename = "../model/model.sav"
+    filename = "model/model.sav"
     loaded_model = joblib.load(filename)
-    
+    #order of columns after get_dummies --> to avoid problem with data from user
+    columns = [
+       'Number of bedrooms', 'Living area', 'Furnished', 'Open fireplace',
+       'Terrace', 'Garden', 'Surface area land', 'Number of facades', 'Pool',
+       'Property subtype_BUNGALOW', 'Property subtype_CHALET',
+       'Property subtype_COUNTRY_COTTAGE',
+       'Property subtype_EXCEPTIONAL_PROPERTY', 'Property subtype_FARMHOUSE',
+       'Property subtype_HOUSE', 'Property subtype_MANOR_HOUSE',
+       'Property subtype_MANSION', 'Property subtype_MIXED_USE_BUILDING',
+       'Property subtype_OTHER_PROPERTY', 'Property subtype_TOWN_HOUSE',
+       'Property subtype_VILLA', 'Kitchen_INSTALLED', 'Kitchen_NOT_INSTALLED',
+       'Kitchen_SEMI_EQUIPPED', 'Kitchen_USA_HYPER_EQUIPPED',
+       'Kitchen_USA_INSTALLED', 'Kitchen_USA_SEMI_EQUIPPED',
+       'Kitchen_USA_UNINSTALLED', 'Condition_GOOD', 'Condition_JUST_RENOVATED',
+       'Condition_TO_BE_DONE_UP', 'Condition_TO_RENOVATE',
+       'Condition_TO_RESTORE']
+    X_test = X_test.reindex(columns = columns, fill_value=0)
+
     #Predicting prices 
-    #for now predicting on first 
+    print(X_test.head())
+
+    
     pred = loaded_model.predict(X_test)
 
     return pred
@@ -67,16 +86,13 @@ def train():
 
 #call train() function 
 
-#train()
+# train()
 
-#df = pd.read_csv('../data/houses.csv')
-#df = cleaning_data.preprocess(df)
-#X_test = df.drop(columns=['Price', 'Type of sale', 'Location'], axis=1)
-#print(X_test.iloc[:1])
-#prediction = predict(X_test.iloc[0:1])
-#print("The predicted price is: " + str(prediction))
-#predict(X_test.values[0].reshape(-1,1))
-#print(X_test.values.reshape(1,-1)[0])
-#predict(X_test.values)
-#print(X_test.values.reshape(-1,1))
+# df = pd.read_csv('../data/houses.csv')
+# df = cleaning_data.preprocess(df)
+# X_test = df.drop(columns=['Price', 'Type of sale', 'Location'], axis=1)
+# print(X_test.iloc[:1])
+# prediction = predict(X_test.iloc[0:1])
+# print("The predicted price is: " + str(prediction))
+
 ######

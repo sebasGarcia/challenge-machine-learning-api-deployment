@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import sys
 import json
 import joblib
@@ -7,6 +8,7 @@ sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learn
 sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/predict')
 import cleaning_data
 import prediction
+import model
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
@@ -18,7 +20,6 @@ def alive():
 
 @app.route('/predict', methods=['POST','GET'])
 def predict():
-    #WIP
     """
     This function will be use for the prediction of property
     """
@@ -32,7 +33,7 @@ def predict():
             garden = request.form.get('gardendropdown')
             fireplace = request.form.get('fireplacedropdown')
             pool = request.form.get('pooldropdown')
-            #REMEMBER: this is property subtype in de df!!!! 
+            #REMEMBER: this is property subtype in de df
             property_type= request.form.get('propertydropdown')
             kitchen = request.form.get('kitchendropdown')
             condition = request.form.get('conditiondropdown')
@@ -48,21 +49,15 @@ def predict():
             validData = cleaning_data.checkData((json_data))
             
             if (validData == False):
-
-                print(cleaning_data.checkData(json_data))
-                
                 return render_template("result.html", result="Please fill in all fields")
             
             else:
-                #For now:
-                 return render_template("result.html", result="Your prediction will be shown here:")
+                df = pd.DataFrame(data, index=list(range(len(data))))
+                df = cleaning_data.creatingDummies(df)
+                predicted_price = prediction.predict(df)[0]
+                result_price = "The price of your property is: "+ str("{:,.2f}".format(predicted_price)) + " EUR"
+                return render_template("result.html", result = result_price )
 
-
-
-            #return jsonify(data)
-            #result = round(float(ValuePredictor(to_predict_list)), 2)
-        #return render_template("home.html", result=result)
-        #return render_template("immoeliza.html")
     if request.method == 'GET':
         return render_template("immoeliza.html")
     

@@ -19,6 +19,7 @@ def preprocess(df):
 
     new_df = imputeAndClean(new_df)
     new_df = creatingDummies(new_df)
+    
     return new_df
 
 
