@@ -8,8 +8,10 @@ sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learn
 sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/predict')
 #import preprocessing.cleaning_data as cleaning_data
 #import predict.prediction as prediction
-from preprocessing import cleaning_data
-from predict import prediction
+#from preprocessing import cleaning_data
+#from predict import prediction
+import preprocessing.cleaning_data as cleaning_data
+import predict.prediction as prediction 
 
 from flask import Flask, request, jsonify, render_template
 
@@ -50,6 +52,7 @@ def predict():
             
             json_data=json.dumps(data)
             validData = cleaning_data.checkData((json_data))
+           
             
             if (validData == False):
                 return render_template("result.html", result="Please fill in all fields")
@@ -57,7 +60,9 @@ def predict():
             else:
                 df = pd.DataFrame(data, index=list(range(len(data))))
                 df = cleaning_data.creatingDummies(df)
+               
                 predicted_price = prediction.predict(df)[0]
+                
                 result_price = "The price of your property is: "+ str("{:,.2f}".format(predicted_price)) + " EUR"
                 return render_template("result.html", result = result_price )
 
