@@ -2,12 +2,11 @@ import pandas as pd
 import numpy as np
 
 def preprocess(df):
-    #TODO: Make sure to verify that the columns exists on the df (received by the form) before cleaning with the function checkData
+    
     new_df = df.copy()
     """
     This function will use several functions of this file in order to return a clean df
     """
-    #checkData
     new_df = drop_columns(new_df)
 
     #Convert Booleans to int, empties to 0
