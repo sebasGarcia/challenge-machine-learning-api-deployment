@@ -3,6 +3,7 @@ import pandas as pd
 import sys
 import json
 import joblib
+import importlib.util  
 sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/model')
 sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/preprocessing')
 sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/predict')
@@ -51,7 +52,19 @@ def predict():
             }
             
             json_data=json.dumps(data)
-            validData = cleaning_data.checkData((json_data))
+            ##########################
+            # passing the file name and path as argument
+            spec = importlib.util.spec_from_file_location(
+                    "cleaning_data", "C:/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/preprocessing/cleaning_data.py") 
+
+            # importing the module as clean
+            clean = importlib.util.module_from_spec(spec)       
+            spec.loader.exec_module(clean)
+            # calling checkdata
+            validData = clean.checkData((json_data))
+
+            ##################################
+            #validData = cleaning_data.checkData((json_data))
            
             
             if (validData == False):
@@ -59,9 +72,20 @@ def predict():
             
             else:
                 df = pd.DataFrame(data, index=list(range(len(data))))
-                df = cleaning_data.creatingDummies(df)
+                df = clean.creatingDummies(df)
+                ##########################
+                # passing the file name and path as argument
+                spec1 = importlib.util.spec_from_file_location(
+                    "prediction", "C:/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/predict/prediction.py") 
+
+                # importing the module as clean
+                predicter = importlib.util.module_from_spec(spec1)       
+                spec1.loader.exec_module(predicter)
+                # calling predicted price
+                predicted_price = predicter.predict(df)[0]
+            ##################################    
                
-                predicted_price = prediction.predict(df)[0]
+               # predicted_price = prediction.predict(df)[0]
                 
                 result_price = "The price of your property is: "+ str("{:,.2f}".format(predicted_price)) + " EUR"
                 return render_template("result.html", result = result_price )
