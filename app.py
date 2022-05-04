@@ -20,12 +20,31 @@ def predict():
     This function will be use for the prediction of property
     """
     if request.method == 'POST':
-            #to_predict_list = request.form.to_dict()
-            #to_predict_list = list(to_predict_list.values())
-            #to_predict_list = list(map(float, to_predict_list))
+            number_rooms = request.form.get('number_rooms')
+            living_area =  request.form.get('living_area')
+            surface_area =  request.form.get('surface_area')
+            number_facades =  request.form.get('number_facades')
+            furnished = request.form.get('furnisheddropdown')
+            terrace = request.form.get('terracedropdown')
+            garden = request.form.get('gardendropdown')
+            fireplace = request.form.get('fireplacedropdown')
+            pool = request.form.get('pooldropdown')
+            #REMEMBER: this is property subtype in de df!!!! 
+            property_type= request.form.get('propertydropdown')
+            kitchen = request.form.get('kitchendropdown')
+            condition = request.form.get('conditiondropdown')
+        
+
+            data = {
+             'Number of bedrooms':number_rooms, 'Living area':living_area, 'Furnished':furnished, 'Open fireplace' :fireplace,
+       'Terrace':terrace, 'Garden': garden, 'Surface area land':surface_area, 'Number of facades': number_facades,
+        'Pool':pool, 'Property subtype': property_type, 'Kitchen': kitchen, 'Condition': condition
+            }
+
+            return jsonify(data)
             #result = round(float(ValuePredictor(to_predict_list)), 2)
         #return render_template("home.html", result=result)
-        return render_template("immoeliza.html")
+        #return render_template("immoeliza.html")
     if request.method == 'GET':
         return render_template("immoeliza.html")
     
