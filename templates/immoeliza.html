@@ -47,7 +47,7 @@
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="number_facades">Number of façades</label>
 						<div class="col-sm-8">
-							<input type="number" min="0" class="form-control" name="numbes_facades" placeholder="&nbsp;0&nbsp;">
+							<input type="number" min="0" class="form-control" name="number_facades" placeholder="&nbsp;0&nbsp;">
 						</div>
 							
 						
@@ -104,12 +104,12 @@
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="propertydropdown">Type Property</label>
 						<div class="col-sm-8">
-						<select class="form-control"  type="text" name="propertydropdown" placeholder="property">
+						<select class="form-control"  type="text" name="propertydropdown" placeholder="property" required>
 							<option id="property_bungalow" value="BUNGALOW">BUNGALOW</option>
 							<option id="property_chalet" value="CHALET">CHALET</option>
 							<option id="property_countrycottage" value="COUNTRY_COTTAGE">COUNTRY_COTTAGE</option>
 							<option id="property_exceptional" value="EXCEPTIONAL_PROPERTY">EXCEPTIONAL_PROPERTY</option>
-							<option id="property_house" value="HOUSE">HOUSE</option>
+							<option selected id="property_house" value="HOUSE">HOUSE</option>
 							<option id="property_manor" value="MANOR_HOUSE">MANOR_HOUSE</option>
 							<option id="property_mansion" value="MANSION">MANSION</option>
 							<option id="property_mixed" value="MIXED_USE_BUILDING">MIXED_USE_BUILDING</option>
@@ -123,8 +123,8 @@
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="kitchendropdown">Type Kitchen</label>
 						<div class="col-sm-8">
-						<select class="form-control"  type="text" name="kitchendropdown" placeholder="kitchen">
-							<option id="installed" value="INSTALLED">INSTALLED</option>
+						<select class="form-control"  type="text" name="kitchendropdown" placeholder="kitchen" required>
+							<option selected id="installed" value="INSTALLED">INSTALLED</option>
 							<option id="notinstalled" value="NOT_INSTALLED">NOT_INSTALLED</option>
 							<option id="semi_equipped" value="SEMI_EQUIPPED">SEMI_EQUIPPED</option>
 							<option id="usahyper" value="USA_HYPER_EQUIPPED">USA_HYPER_EQUIPPED</option>
@@ -138,8 +138,8 @@
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="conditiondropdown">Condition</label>
 						<div class="col-sm-8">
-						<select class="form-control"  type="text" name="conditiondropdown" placeholder="condition">
-							<option id="good" value="GOOD">GOOD</option>
+						<select class="form-control"  type="text" name="conditiondropdown" placeholder="condition" required>
+							<option selected id="good" value="GOOD">GOOD</option>
 							<option id="justrenovated" value="JUST_RENOVATED">JUST_RENOVATED</option>
 							<option id="tobedoneup" value="TO_BE_DONE_UP">TO_BE_DONE_UP</option>
 							<option id="torenovate" value="TO_RENOVATE">TO_RENOVATE</option>
@@ -156,6 +156,7 @@
 				
 			
         		</form>
+				<br/>
 		
 				<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 				<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

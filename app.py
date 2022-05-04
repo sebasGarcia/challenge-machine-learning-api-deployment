@@ -1,9 +1,12 @@
 import numpy as np
 import sys
+import json
 import joblib
 sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/model')
 sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/preprocessing')
 sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/predict')
+import cleaning_data
+import prediction
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
@@ -36,12 +39,27 @@ def predict():
         
 
             data = {
-             'Number of bedrooms':number_rooms, 'Living area':living_area, 'Furnished':furnished, 'Open fireplace' :fireplace,
-       'Terrace':terrace, 'Garden': garden, 'Surface area land':surface_area, 'Number of facades': number_facades,
-        'Pool':pool, 'Property subtype': property_type, 'Kitchen': kitchen, 'Condition': condition
+             'Number of bedrooms':str(number_rooms), 'Living area':str(living_area), 'Furnished':str(furnished), 'Open fireplace' :str(fireplace),
+       'Terrace':str(terrace), 'Garden': str(garden), 'Surface area land':str(surface_area), 'Number of facades': str(number_facades),
+        'Pool':str(pool), 'Property subtype': str(property_type), 'Kitchen': str(kitchen), 'Condition': str(condition)
             }
+            
+            json_data=json.dumps(data)
+            validData = cleaning_data.checkData((json_data))
+            
+            if (validData == False):
 
-            return jsonify(data)
+                print(cleaning_data.checkData(json_data))
+                
+                return render_template("result.html", result="Please fill in all fields")
+            
+            else:
+                #For now:
+                 return render_template("result.html", result="Your prediction will be shown here:")
+
+
+
+            #return jsonify(data)
             #result = round(float(ValuePredictor(to_predict_list)), 2)
         #return render_template("home.html", result=result)
         #return render_template("immoeliza.html")

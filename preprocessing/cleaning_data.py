@@ -22,13 +22,20 @@ def preprocess(df):
     return new_df
 
 
-def checkData(data):
-    #TODO: This is a work in progress
+def checkData(data) -> bool:
+    #This is a work in progress
     """
-    This function verifies the data received from the form, mandatory data must be given and makes sure that optional 
-    data is given a value before the preprocessing function is executed 
+    This function verifies the data received from the form, mandatory data must be given otherwise false is return
     """
-
+    print(str(data))
+    df = pd.read_json(data, typ='dictionary')
+    #var = str(data)
+   # print(var)
+    #print(df.head())
+    if df['Number of facades'] == '' or df['Number of bedrooms'] == '' or  df['Living area'] == '' or  df['Surface area land'] == '':
+       return False 
+    else:
+       return True
 
 
 def convertToInt(X : int):

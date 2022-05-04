@@ -67,14 +67,14 @@ def train():
 
 #call train() function 
 
-train()
+#train()
 
-df = pd.read_csv('../data/houses.csv')
-df = cleaning_data.preprocess(df)
-X_test = df.drop(columns=['Price', 'Type of sale', 'Location'], axis=1)
-print(X_test.iloc[:1])
-prediction = predict(X_test.iloc[0:1])
-print("The predicted price is: " + str(prediction))
+#df = pd.read_csv('../data/houses.csv')
+#df = cleaning_data.preprocess(df)
+#X_test = df.drop(columns=['Price', 'Type of sale', 'Location'], axis=1)
+#print(X_test.iloc[:1])
+#prediction = predict(X_test.iloc[0:1])
+#print("The predicted price is: " + str(prediction))
 #predict(X_test.values[0].reshape(-1,1))
 #print(X_test.values.reshape(1,-1)[0])
 #predict(X_test.values)
