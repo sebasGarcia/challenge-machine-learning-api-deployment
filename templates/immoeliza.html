@@ -8,45 +8,96 @@
 	 
 		 <!-- Bootstrap CSS -->
         <title>Calculate the price of your property</title>
-		<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+		
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		
 	  <!-- Custom styles for this template -->
-	  <link href="/static/css/signin.css" rel="stylesheet">
+	  
+	  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <style>
+		html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+		body, html {
+			  height: 100%;
+			  margin: 0;
+			}
+		
+		
+			.bg {
+			  position: relative;
+			  
+			  /* Full height */
+			  height: 100%;
+		   
+				
+			  /* Center and scale the image nicely */
+			  background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			}
+		
+			.bg::before {
+			content: "";
+			position: absolute;
+			background-image: url("https://www.allproperties.com.ph/wp-content/uploads/2021/05/House-and-Lot-For-Sale-in-Pangasinan-Minimalist-Furnitures-1536x865.jpg");
+			top: 0px;
+			right: 0px;
+			bottom: 0px;
+			left: 0px;
+			z-index: -1;
+		  opacity: .6;
+		  background-size: cover;
+		}
+		.inline{
+    display:inline-block!important;
+    width:auto!important;
+}
+		   
+		</style>
+
+
+
 	</head>
 
-	<body class="text-center">
-
-		
-			<div class="h3 mb-3 fw-normal"><legend><h1>Calculate the price of your property</h1></legend></div>
-		
-
+	<body class="w3-theme-l5 text-center">
+		<div class="bg">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4 w3-opacity"><legend><h1>Immoeliza:<br>Property Price Calculator</h1></legend></div>
+				<div class="col-md-4"></div>
+			</div>
 			<br>
-			
-				<form action="{{url_for('predict')}}"  method="post">
-					<div class="form-group row">
-						<label  class="col-sm-2 col-form-label" for="number_rooms">Number of Rooms</label>
-						<div class="col-sm-8">
+			<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+		
+				<form class="form-horizontal" action="{{url_for('predict')}}"  method="post">
+					<div class="form-group">
+						<label  class="control-label col-xs-3" for="number_rooms">Number of Rooms</label>
+						<div class="col-xs-7">
 						<input type="number" min="0" class="form-control" required="required" name="number_rooms" placeholder="&nbsp;0&nbsp;">
 						</div>
 					</div>
-					<div class="form-group row">
-						<label  class="col-sm-2 col-form-label" for="living_area">Living Area</label>
-						<div class="col-sm-8">
+					<div class="form-group">
+						<label  class="control-label col-xs-3" for="living_area">Living Area</label>
+						<div class="col-xs-7">
 							<input type="number" min="0" required="required" class="form-control" name="living_area" placeholder="&nbsp;0&nbsp;">
 						</div>
 							
 						
 					</div>
-					<div class="form-group row">
-						<label   class="col-sm-2 col-form-label" for="surface_area">Surface Area Land</label>
-						<div class="col-sm-8">
+					<div class="form-group">
+						<label   class="control-label col-xs-3" for="surface_area">Surface Area Land</label>
+						<div class="col-xs-7">
 							<input type="number" min="0" required="required" class="form-control" name="surface_area" placeholder="&nbsp;0&nbsp;">
 						</div>
 					</div>
-					<div class="form-group row">
-						<label  class="col-sm-2 col-form-label" for="number_facades">Number of façades</label>
-						<div class="col-sm-8">
+					<div class="form-group">
+						<label  class="control-label col-xs-3" for="number_facades">Number of façades</label>
+						<div class="col-xs-7">
 							<input type="number" min="0" required="required" class="form-control" name="number_facades" placeholder="&nbsp;0&nbsp;">
 						</div>
 							
@@ -54,9 +105,9 @@
 					</div>
 
 					<!-- Yes or No for Furnished-->
-					<div class="form-group row">
-						<label  class="col-sm-2 col-form-label" for="furnisheddropdown">Furnished</label>
-						<div class="col-sm-8">
+					<div class="form-group">
+						<label  class="control-label col-xs-3" for="furnisheddropdown">Furnished</label>
+						<div class="col-xs-7">
 						<select class="form-control" required="required" type="text" name="furnisheddropdown" placeholder="Furnished?">
 							<option id="furnished_yes" value="1">Yes</option>
 							<option selected id="furnished_no" value="0">No</option>
@@ -64,36 +115,36 @@
 					</div>
 					</div>
 					<!-- Yes or No for Furnished block finish...Do the same for the rest of yes/no columns and categorical values-->
-					<div class="form-group row">
-						<label  class="col-sm-2 col-form-label" for="terracedropdown">Terrace</label>
-						<div class="col-sm-8">
+					<div class="form-group">
+						<label  class="control-label col-xs-3" for="terracedropdown">Terrace</label>
+						<div class="col-xs-7">
 						<select class="form-control" required="required"  type="text" name="terracedropdown" placeholder="terrace?">
 							<option id="terrace_yes" value="1">Yes</option>
 							<option selected id="terrace_no" value="0">No</option>
 					   </select>
 					</div>
 					</div>
-					<div class="form-group row">
-						<label  class="col-sm-2 col-form-label" for="gardendropdown">Garden</label>
-						<div class="col-sm-8">
+					<div class="form-group">
+						<label  class="control-label col-xs-3" for="gardendropdown">Garden</label>
+						<div class="col-xs-7">
 						<select class="form-control" required="required" type="text" name="gardendropdown" placeholder="garden?">
 							<option id="garden_yes" value="1">Yes</option>
 							<option selected id="garden_no" value="0">No</option>
 					   </select>
 					</div>
 					</div>
-					<div class="form-group row">
-						<label  class="col-sm-2 col-form-label" for="fireplacedropdown">Fireplace</label>
-						<div class="col-sm-8">
+					<div class="form-group">
+						<label  class="control-label col-xs-3" for="fireplacedropdown">Fireplace</label>
+						<div class="col-xs-7">
 						<select class="form-control" required="required"  type="text" name="fireplacedropdown" placeholder="fireplace?">
 							<option id="fireplace_yes" value="1">Yes</option>
 							<option selected id="fireplace_no" value="0">No</option>
 					   </select>
 					</div>
 					</div>
-					<div class="form-group row">
-						<label  class="col-sm-2 col-form-label" for="pooldropdown">Pool</label>
-						<div class="col-sm-8">
+					<div class="form-group">
+						<label  class="control-label col-xs-3" for="pooldropdown">Pool</label>
+						<div class="col-xs-7">
 						<select class="form-control" required="required" type="text" name="pooldropdown" placeholder="pool?">
 							<option id="pool_yes" value="1">Yes</option>
 							<option selected id="pool_no" value="0">No</option>
@@ -101,9 +152,9 @@
 					</div>
 					</div>
 					<!--Property type-->
-					<div class="form-group row">
-						<label  class="col-sm-2 col-form-label" for="propertydropdown">Type Property</label>
-						<div class="col-sm-8">
+					<div class="form-group">
+						<label  class="control-label col-xs-3" for="propertydropdown">Type Property</label>
+						<div class="col-xs-7">
 						<select class="form-control" required="required" type="text" name="propertydropdown" placeholder="property">
 							<option id="property_bungalow" value="BUNGALOW">BUNGALOW</option>
 							<option id="property_chalet" value="CHALET">CHALET</option>
@@ -120,9 +171,9 @@
 					</div>
 					</div>
 					<!--Kitchen-->
-					<div class="form-group row">
-						<label  class="col-sm-2 col-form-label" for="kitchendropdown">Type Kitchen</label>
-						<div class="col-sm-8">
+					<div class="form-group">
+						<label  class="control-label col-xs-3" for="kitchendropdown">Type Kitchen</label>
+						<div class="col-xs-7">
 						<select class="form-control" required="required" type="text" name="kitchendropdown" placeholder="kitchen">
 							<option id="installed" value="INSTALLED">INSTALLED</option>
 							<option id="notinstalled" value="NOT_INSTALLED">NOT_INSTALLED</option>
@@ -135,9 +186,9 @@
 					</div>
 					</div>
 					<!--Condition-->
-					<div class="form-group row">
-						<label  class="col-sm-2 col-form-label" for="conditiondropdown">Condition</label>
-						<div class="col-sm-8">
+					<div class="form-group">
+						<label  class="control-label col-xs-3" for="conditiondropdown">Condition</label>
+						<div class="col-xs-7">
 						<select class="form-control" required="required" type="text" name="conditiondropdown" placeholder="condition">
 							<option id="good" value="GOOD">GOOD</option>
 							<option id="justrenovated" value="JUST_RENOVATED">JUST_RENOVATED</option>
@@ -148,18 +199,21 @@
 					</div>
 					</div>
 					<!--Button-->
-					<div class="form-group row">
-				<div class="col-sm-10 text-center">
-					<button class="w-100 btn btn-lg outline btn-primary  mr-2" type="submit">Submit</button>
+					<div class="form-group">
+				<div class="col-xs-offset-3 col-xs-7 text-center">
+					<button class="w-100 w3-button w3-theme text-center btn btn-lg outline btn-primary  mr-2" type="submit">Submit</button>
 				</div>
 				</div>
 				
 			
         		</form>
+			</div>
 				<br/>
 		
 				<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 				<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 				<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	</body>
+	</div>
+	<div class="col-md-4"></div></div>
+			</body>
 </html>
