@@ -4,9 +4,9 @@ import sys
 import json
 import joblib
 import importlib.util  
-sys.path.append('./model')
-sys.path.append('./preprocessing')
-sys.path.append('./predict')
+sys.path.append('/model')
+sys.path.append('/preprocessing')
+sys.path.append('/predict')
 #import preprocessing.cleaning_data as cleaning_data
 #import predict.prediction as prediction
 from preprocessing.cleaning_data import checkData

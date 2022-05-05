@@ -1,10 +1,10 @@
 from cgi import test
 import sys
-sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/model')
-sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/preprocessing')
+sys.path.append('../model')
+sys.path.append('../preprocessing')
 import pandas as pd
 import numpy as np
-import cleaning_data
+from preprocessing.cleaning_data import preprocess
 import joblib
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
@@ -53,7 +53,7 @@ def train():
     print(df.columns)
     #After preprocessing
     print("------------After preprocessing------------------------------")
-    df = cleaning_data.preprocess(df)
+    df = preprocess(df)
 
     print(df.head())
 
