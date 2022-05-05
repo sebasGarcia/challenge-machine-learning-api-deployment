@@ -8,13 +8,11 @@ import importlib.util
 sys.path.append('/model')
 sys.path.append('/preprocessing')
 sys.path.append('/predict')
-#import preprocessing.cleaning_data as cleaning_data
-#import predict.prediction as prediction
+
 from preprocessing.cleaning_data import checkData
 from preprocessing.cleaning_data import creatingDummies
 from predict.prediction import predict_price
-#import preprocessing.cleaning_data as cleaning_data
-#import predict.prediction as prediction 
+
 
 from flask import Flask, request, jsonify, render_template
 
@@ -22,7 +20,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def alive():
-    #return '<h1>This is server is alive!</h1>'
+    
     return render_template("serveralive.html")
 
 
@@ -55,7 +53,7 @@ def predict():
             }
             
             json_data=json.dumps(data)
-            ##########################
+    
             # passing the file name and path as argument
             spec = importlib.util.spec_from_file_location(
                     "cleaning_data", "preprocessing/cleaning_data.py") 
@@ -65,19 +63,14 @@ def predict():
             spec.loader.exec_module(clean)
             # calling checkdata
             validData = clean.checkData((json_data))
-
-            ##################################
-            #validData = cleaning_data.checkData((json_data))
-           
-            
+       
             if (validData == False):
                 return render_template("result.html", result="Please fill in all fields")
             
             else:
                 df = pd.DataFrame(data, index=list(range(len(data))))
                 df = clean.creatingDummies(df)
-                ##########################
-                # passing the file name and path as argument
+               
                 spec1 = importlib.util.spec_from_file_location(
                     "prediction", "predict/prediction.py") 
 
@@ -86,9 +79,6 @@ def predict():
                 spec1.loader.exec_module(predicter)
                 # calling predicted price
                 predicted_price = predicter.predict_price(df)[0]
-            ##################################    
-               
-               # predicted_price = prediction.predict(df)[0]
                 
                 result_price = str("{:,.2f}".format(predicted_price)) + " EUR"
                 return render_template("result.html", result = result_price )
