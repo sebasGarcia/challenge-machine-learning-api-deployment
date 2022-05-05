@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import sys
+import os
 import json
 import joblib
 import importlib.util  
@@ -21,7 +22,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def alive():
-    return '<h1>This is server is alive!</h1>'
+    #return '<h1>This is server is alive!</h1>'
+    return render_template("serveralive.html")
 
 
 @app.route('/predict', methods=['POST','GET'])
@@ -88,7 +90,7 @@ def predict():
                
                # predicted_price = prediction.predict(df)[0]
                 
-                result_price = "The price of your property is: "+ str("{:,.2f}".format(predicted_price)) + " EUR"
+                result_price = str("{:,.2f}".format(predicted_price)) + " EUR"
                 return render_template("result.html", result = result_price )
 
     if request.method == 'GET':
@@ -96,4 +98,5 @@ def predict():
     
 
 if __name__ == '__main__':
-   app.run(debug=True)
+    port= int(os.environ.get('PORT',5000))
+    app.run(debug=False, host='0.0.0.0', port=port)

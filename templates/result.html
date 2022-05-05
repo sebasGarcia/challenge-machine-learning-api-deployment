@@ -3,21 +3,66 @@
     <head>
         <title>Predicted price</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+body, html {
+      height: 100%;
+      margin: 0;
+    }
+
+
+    .bg {
+      position: relative;
+      
+      /* Full height */
+      height: 100%;
+   
+        
+      /* Center and scale the image nicely */
+      background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+    .bg::before {
+    content: "";
+    position: absolute;
+    background-image: url("https://www.allproperties.com.ph/wp-content/uploads/2021/05/House-and-Lot-For-Sale-in-Pangasinan-Minimalist-Furnitures-1536x865.jpg");
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: -1;
+  opacity: .6;
+  background-size: cover;
+}
+   
+</style>
     </head>
 
-    <body align=center>
-        
+    <body class="w3-theme-l5">
+        <div class="bg">
         <div class="row">
+        
             <div class="col-md-4">
               
             </div>
             <div class="col-md-4"><br>
                 <img src="https://media.giphy.com/media/cBCAI9rZj2nShv10wU/giphy-downsized-large.gif" alt="funny GIF" width="100%">
                 <br>
-                <legend><h2>{{result}}</h2>
+              
+                    <h2 class="text-center w3-opacity-min">The price of your property is:</h2>
+                    <br><b><h1 class="text-center w3-opacity-min">{{result}}</b></h1>
                 
-                </legend></div>
+                </div>
             <div class="col-md-4"></div>
-        </div>
+         </div>
+    
+    </div>
+</div>
     </body>
 </html>
