@@ -9,7 +9,8 @@ import importlib.util
 #sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/predict')
 #import preprocessing.cleaning_data as cleaning_data
 #import predict.prediction as prediction
-#from preprocessing import cleaning_data
+from preprocessing.cleaning_data import checkData
+from preprocessing.cleaning_data import creatingDummies
 #from predict import prediction
 #import preprocessing.cleaning_data as cleaning_data
 #import predict.prediction as prediction 
@@ -55,7 +56,7 @@ def predict():
             ##########################
             # passing the file name and path as argument
             spec = importlib.util.spec_from_file_location(
-                    "cleaning_data", "C:/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/preprocessing/cleaning_data.py") 
+                    "cleaning_data", "./preprocessing/cleaning_data.py") 
 
             # importing the module as clean
             clean = importlib.util.module_from_spec(spec)       
@@ -76,7 +77,7 @@ def predict():
                 ##########################
                 # passing the file name and path as argument
                 spec1 = importlib.util.spec_from_file_location(
-                    "prediction", "C:/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/predict/prediction.py") 
+                    "prediction", "./predict/prediction.py") 
 
                 # importing the module as clean
                 predicter = importlib.util.module_from_spec(spec1)       
