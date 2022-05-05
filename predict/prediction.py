@@ -10,7 +10,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
 
-def predict(X_test):
+def predict_price(X_test):
     """
     This function will received the data that will be used to predict a new house's price
     """

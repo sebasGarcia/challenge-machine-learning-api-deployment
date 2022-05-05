@@ -4,14 +4,14 @@ import sys
 import json
 import joblib
 import importlib.util  
-#sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/model')
-#sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/preprocessing')
-#sys.path.insert(0, '/Users/sebas/Desktop/BeCode/Projects/challenge-machine-learning-api-deployment/predict')
+sys.path.append('./model')
+sys.path.append('./preprocessing')
+sys.path.append('./predict')
 #import preprocessing.cleaning_data as cleaning_data
 #import predict.prediction as prediction
 from preprocessing.cleaning_data import checkData
 from preprocessing.cleaning_data import creatingDummies
-#from predict import prediction
+from predict.prediction import predict_price
 #import preprocessing.cleaning_data as cleaning_data
 #import predict.prediction as prediction 
 
@@ -56,8 +56,8 @@ def predict():
             ##########################
             # passing the file name and path as argument
             spec = importlib.util.spec_from_file_location(
-                    "cleaning_data", "./preprocessing/cleaning_data.py") 
-
+                    "cleaning_data", "preprocessing/cleaning_data.py") 
+            print("specc" + str(spec))
             # importing the module as clean
             clean = importlib.util.module_from_spec(spec)       
             spec.loader.exec_module(clean)
@@ -77,13 +77,13 @@ def predict():
                 ##########################
                 # passing the file name and path as argument
                 spec1 = importlib.util.spec_from_file_location(
-                    "prediction", "./predict/prediction.py") 
+                    "prediction", "predict/prediction.py") 
 
                 # importing the module as clean
                 predicter = importlib.util.module_from_spec(spec1)       
                 spec1.loader.exec_module(predicter)
                 # calling predicted price
-                predicted_price = predicter.predict(df)[0]
+                predicted_price = predicter.predict_price(df)[0]
             ##################################    
                
                # predicted_price = prediction.predict(df)[0]

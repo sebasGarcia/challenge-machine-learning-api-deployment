@@ -27,13 +27,13 @@
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="number_rooms">Number of Rooms</label>
 						<div class="col-sm-8">
-						<input type="number" min="0" class="form-control" name="number_rooms" placeholder="&nbsp;0&nbsp;">
+						<input type="number" min="0" class="form-control" required="required" name="number_rooms" placeholder="&nbsp;0&nbsp;">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="living_area">Living Area</label>
 						<div class="col-sm-8">
-							<input type="number" min="0" class="form-control" name="living_area" placeholder="&nbsp;0&nbsp;">
+							<input type="number" min="0" required="required" class="form-control" name="living_area" placeholder="&nbsp;0&nbsp;">
 						</div>
 							
 						
@@ -41,13 +41,13 @@
 					<div class="form-group row">
 						<label   class="col-sm-2 col-form-label" for="surface_area">Surface Area Land</label>
 						<div class="col-sm-8">
-							<input type="number" min="0" class="form-control" name="surface_area" placeholder="&nbsp;0&nbsp;">
+							<input type="number" min="0" required="required" class="form-control" name="surface_area" placeholder="&nbsp;0&nbsp;">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="number_facades">Number of façades</label>
 						<div class="col-sm-8">
-							<input type="number" min="0" class="form-control" name="number_facades" placeholder="&nbsp;0&nbsp;">
+							<input type="number" min="0" required="required" class="form-control" name="number_facades" placeholder="&nbsp;0&nbsp;">
 						</div>
 							
 						
@@ -57,7 +57,7 @@
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="furnisheddropdown">Furnished</label>
 						<div class="col-sm-8">
-						<select class="form-control"  type="text" name="furnisheddropdown" placeholder="Furnished?">
+						<select class="form-control" required="required" type="text" name="furnisheddropdown" placeholder="Furnished?">
 							<option id="furnished_yes" value="1">Yes</option>
 							<option selected id="furnished_no" value="0">No</option>
 					   </select>
@@ -67,7 +67,7 @@
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="terracedropdown">Terrace</label>
 						<div class="col-sm-8">
-						<select class="form-control"  type="text" name="terracedropdown" placeholder="terrace?">
+						<select class="form-control" required="required"  type="text" name="terracedropdown" placeholder="terrace?">
 							<option id="terrace_yes" value="1">Yes</option>
 							<option selected id="terrace_no" value="0">No</option>
 					   </select>
@@ -76,7 +76,7 @@
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="gardendropdown">Garden</label>
 						<div class="col-sm-8">
-						<select class="form-control"  type="text" name="gardendropdown" placeholder="garden?">
+						<select class="form-control" required="required" type="text" name="gardendropdown" placeholder="garden?">
 							<option id="garden_yes" value="1">Yes</option>
 							<option selected id="garden_no" value="0">No</option>
 					   </select>
@@ -85,7 +85,7 @@
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="fireplacedropdown">Fireplace</label>
 						<div class="col-sm-8">
-						<select class="form-control"  type="text" name="fireplacedropdown" placeholder="fireplace?">
+						<select class="form-control" required="required"  type="text" name="fireplacedropdown" placeholder="fireplace?">
 							<option id="fireplace_yes" value="1">Yes</option>
 							<option selected id="fireplace_no" value="0">No</option>
 					   </select>
@@ -94,7 +94,7 @@
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="pooldropdown">Pool</label>
 						<div class="col-sm-8">
-						<select class="form-control"  type="text" name="pooldropdown" placeholder="pool?">
+						<select class="form-control" required="required" type="text" name="pooldropdown" placeholder="pool?">
 							<option id="pool_yes" value="1">Yes</option>
 							<option selected id="pool_no" value="0">No</option>
 					   </select>
@@ -104,12 +104,12 @@
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="propertydropdown">Type Property</label>
 						<div class="col-sm-8">
-						<select class="form-control"  type="text" name="propertydropdown" placeholder="property" required>
+						<select class="form-control" required="required" type="text" name="propertydropdown" placeholder="property">
 							<option id="property_bungalow" value="BUNGALOW">BUNGALOW</option>
 							<option id="property_chalet" value="CHALET">CHALET</option>
 							<option id="property_countrycottage" value="COUNTRY_COTTAGE">COUNTRY_COTTAGE</option>
 							<option id="property_exceptional" value="EXCEPTIONAL_PROPERTY">EXCEPTIONAL_PROPERTY</option>
-							<option selected id="property_house" value="HOUSE">HOUSE</option>
+							<option id="property_house" value="HOUSE">HOUSE</option>
 							<option id="property_manor" value="MANOR_HOUSE">MANOR_HOUSE</option>
 							<option id="property_mansion" value="MANSION">MANSION</option>
 							<option id="property_mixed" value="MIXED_USE_BUILDING">MIXED_USE_BUILDING</option>
@@ -123,8 +123,8 @@
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="kitchendropdown">Type Kitchen</label>
 						<div class="col-sm-8">
-						<select class="form-control"  type="text" name="kitchendropdown" placeholder="kitchen" required>
-							<option selected id="installed" value="INSTALLED">INSTALLED</option>
+						<select class="form-control" required="required" type="text" name="kitchendropdown" placeholder="kitchen">
+							<option id="installed" value="INSTALLED">INSTALLED</option>
 							<option id="notinstalled" value="NOT_INSTALLED">NOT_INSTALLED</option>
 							<option id="semi_equipped" value="SEMI_EQUIPPED">SEMI_EQUIPPED</option>
 							<option id="usahyper" value="USA_HYPER_EQUIPPED">USA_HYPER_EQUIPPED</option>
@@ -138,8 +138,8 @@
 					<div class="form-group row">
 						<label  class="col-sm-2 col-form-label" for="conditiondropdown">Condition</label>
 						<div class="col-sm-8">
-						<select class="form-control"  type="text" name="conditiondropdown" placeholder="condition" required>
-							<option selected id="good" value="GOOD">GOOD</option>
+						<select class="form-control" required="required" type="text" name="conditiondropdown" placeholder="condition">
+							<option id="good" value="GOOD">GOOD</option>
 							<option id="justrenovated" value="JUST_RENOVATED">JUST_RENOVATED</option>
 							<option id="tobedoneup" value="TO_BE_DONE_UP">TO_BE_DONE_UP</option>
 							<option id="torenovate" value="TO_RENOVATE">TO_RENOVATE</option>
