@@ -8,8 +8,6 @@ After we previously performed a data collection using web scrapping, the company
 
 In addition, they require an API to let their web-developers create a website around it, this API ask the useer to Ideally, your API would ask a user to provide with information about a property (features) and return the estimated price using the model.
 
-.
-.
 
 ![sold (GIF)](https://media.giphy.com/media/Q5FVvyM2OuvUUysSQm/giphy.gif)
 
