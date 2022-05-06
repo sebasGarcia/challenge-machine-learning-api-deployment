@@ -92,6 +92,10 @@ def imputeAndClean(df):
     mean_facades = new_df['Number of facades'].mean()
     new_df['Number of facades'] = new_df['Number of facades'].fillna(int(mean_facades))
 
+    #remove outliers
+    # index_name = new_df[new_df['Price'] == "35000000"].index
+    # new_df.drop(index_name , inplace=True)
+
     return new_df
 
 
