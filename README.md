@@ -4,7 +4,7 @@
 
 The real estate company "ImmoEliza" requires a tool that enables the company to predict property prices using linear regression in order to determine whenever a new property comes on the market, how it should be priced.
 
-After we previously performed a data collection using web scrapping, the company  now asks to create a machine learning model to predict prices on Belgium's real estate sales. The goal is to utilizze this dataset, preprocess to be used with machine learning.
+After we previously performed a data collection using web scrapping, the company  now asks to create a machine learning model to predict prices on Belgium's real estate sales. The goal is to utilize this dataset, preprocess to be used with machine learning.
 
 In addition, they require an API to let their web-developers create a website around it, this API ask the useer to Ideally, your API would ask a user to provide with information about a property (features) and return the estimated price using the model.
 
