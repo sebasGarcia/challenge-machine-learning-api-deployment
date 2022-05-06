@@ -62,7 +62,7 @@ The Flask application is a simple but functional solution that where the user ca
 
 #### Predict page
 
-![Decision Tree Matrix](https://github.com/bakiguher/arcelor_mittal/blob/sebastian/data/decision%20tree%20matrix.JPG)
+![Predict](https://github.com/sebasGarcia/challenge-machine-learning-api-deployment/blob/main/data/predict.JPG)
 
 
 
@@ -70,7 +70,7 @@ The Flask application is a simple but functional solution that where the user ca
 
 And then it will get an estimation price based on the created linear regression model.
 
-![Random Forest Matrix](https://github.com/bakiguher/arcelor_mittal/blob/sebastian/data/rf%20matrix.JPG)
+![Results](https://github.com/sebasGarcia/challenge-machine-learning-api-deployment/blob/main/data/results.JPG)
 
 ```
 
