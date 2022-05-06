@@ -78,5 +78,3 @@ def train():
     #Save model
     filename = "../model/model.sav"
     joblib.dump(model, filename)
-
-#train()

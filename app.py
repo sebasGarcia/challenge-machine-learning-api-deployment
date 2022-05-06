@@ -40,7 +40,6 @@ def predict():
             garden = request.form.get('gardendropdown')
             fireplace = request.form.get('fireplacedropdown')
             pool = request.form.get('pooldropdown')
-            #REMEMBER: this is property subtype in de df
             property_type= request.form.get('propertydropdown')
             kitchen = request.form.get('kitchendropdown')
             condition = request.form.get('conditiondropdown')
