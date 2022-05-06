@@ -60,7 +60,7 @@ After the model was created and tested, the deployment of the Flask app took pla
 The Flask application is a simple but functional solution that where the user can  first provide the information of the property on the predict page.
 
 
-#### Predict page
+### Predict page
 
 ![Predict](https://github.com/sebasGarcia/challenge-machine-learning-api-deployment/blob/main/data/predict.JPG)
 
