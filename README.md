@@ -2,7 +2,7 @@
 
 ## Description
 
-The real estate company "ImmoEliza" requires a tool that enables the company to predict property prices using linear regression in order to determine Whenever a new property comes on the market, how it should be priced.
+The real estate company "ImmoEliza" requires a tool that enables the company to predict property prices using linear regression in order to determine whenever a new property comes on the market, how it should be priced.
 
 After we previously performed a data collection using web scrapping, the company  now asks to create a machine learning model to predict prices on Belgium's real estate sales. The goal is to utilizze this dataset, preprocess to be used with machine learning.
 
