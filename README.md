@@ -68,7 +68,7 @@ The Flask application is a simple but functional solution that where the user ca
 
 ###  Results page
 
-And then it will get an estimation price based on the created linear regression model.
+And then it will provide an estimation price based on the created linear regression model.
 
 ![Results](https://github.com/sebasGarcia/challenge-machine-learning-api-deployment/blob/main/data/results.JPG)
 
