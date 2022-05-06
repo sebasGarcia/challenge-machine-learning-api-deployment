@@ -57,7 +57,7 @@ After the model was created and tested, the deployment of the Flask app took pla
 
 ### Visuals
 
-The Flask application is a simple but functional solution that where the user can  first provide the information of the property on the predict page.
+The Flask application is a simple but functional solution where the user can  first provide the information of the property on the predict page.
 
 
 ### Predict page
