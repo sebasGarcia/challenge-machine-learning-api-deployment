@@ -72,22 +72,49 @@ And then it will provide an estimation price based on the created linear regress
 
 ![Results](https://github.com/sebasGarcia/challenge-machine-learning-api-deployment/blob/main/data/results.JPG)
 
-```
 
-arcelor_mittal
-│   README.md                               :This file
-│   Exploration Arcelor Mittal Data.ipynb   :Exploration of cleared coildata.csv (includes constriction value)
-│   Classification_Model.ipynb              :Model File
-│   dsModel.py                              :Desicion Tree Model 
-|
-│__   
-│   data          
-│   │ 01_check_measurement_files.py :Reads each coil number from CoilData.csv and checks if it has B4 and B5 measurements.
-│   │ 02_collect_stats_140.py       :Script to check stats like mean, std, max, corr 
-│   │ 03_collect_stats_120.py       :Script to check stats like ttest, fcor
-│   │ 04_combine_stats.py           :Combines all stats in to single file
-│   │ showgraph.py                  :Shows a graph of a coil 
-│   │ utils.py                      :Helper functions  
+###  Repo Architecture 
+
+```
+challenge-machine-learning-api-deployment
+│   app.py
+│   docker-compose.yml
+│   Dockerfile
+│   Procfile
+│   README.md
+│   requirements.txt
+│
+├───data
+│       houses.csv
+│
+├───model
+│       model.sav
+│
+├───predict
+│   │   prediction.py
+│   │   __init__.py
+│   │
+│   └───__pycache__
+│           prediction.cpython-38.pyc
+│           __init__.cpython-38.pyc
+│
+├───preprocessing
+│   │   cleaning_data.py
+│   │   EDA and preprocessing.ipynb
+│   │   __init__.py
+│   │
+│   ├───.ipynb_checkpoints
+│   │       EDA and preprocessing-checkpoint.ipynb
+│   │
+│   └───__pycache__
+│           cleaning_data.cpython-38.pyc
+│           cleaning_data.cpython-39.pyc
+│           __init__.cpython-38.pyc
+│
+└───templates
+        immoeliza.html
+        result.html
+        serveralive.html
 ```
 
 ## Installation
